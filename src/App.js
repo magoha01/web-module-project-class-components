@@ -3,7 +3,18 @@ import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
-const tasks = [];
+const tasks = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -18,11 +29,6 @@ class App extends React.Component {
         }
 
         handleAddTask = (taskName)=> {
-          //1. Capture our click
-          //2. change our state
-          //3. retain previous state
-          //4. change groceries: add to groceries an new groceries
-        
           const newTask = {
             name:taskName,
             id: Date.now(),
@@ -34,7 +40,35 @@ class App extends React.Component {
             tasks: [...this.state.tasks, newTask]
           });
         }
+
+        handleClearTask = ()=> {
+      
+          this.setState({
+            ...this.state,
+            tasks: this.state.tasks.filter(task => {
+              return !task.completed;
+            })
+          });
+        }
         
+        handleToggleTask = (selectedTask) => {
+      
+          this.setState({
+            ...this.state,
+            tasks: this.state.tasks.map(task => {
+              if(task.id === selectedTask.id) {
+                return({
+                  ...task,
+                  completed: !task.completed
+                })
+              } else {
+                return task;
+              }
+              
+            })
+          });
+        }
+      
 
   render() 
     { 
@@ -42,10 +76,10 @@ class App extends React.Component {
         <div>
         <div>
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm handleAddTask={this.handleAddTask}/>
+          <TodoForm handleAddTask={this.handleAddTask} handleClearTask={this.handleClearTask}/>
         </div>
 
-        <TodoList tasks={this.state.tasks}/>
+        <TodoList handleToggleTask={this.handleToggleTask} tasks={this.state.tasks}/>
         </div>
       );
     }
