@@ -17,13 +17,32 @@ class App extends React.Component {
           };
         }
 
+        handleAddTask = (taskName)=> {
+          //1. Capture our click
+          //2. change our state
+          //3. retain previous state
+          //4. change groceries: add to groceries an new groceries
+        
+          const newTask = {
+            name:taskName,
+            id: Date.now(),
+            completed: false
+          };
+        
+          this.setState({
+            ...this.state,
+            tasks: [...this.state.tasks, newTask]
+          });
+        }
+        
+
   render() 
     { 
     return (
         <div>
         <div>
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm />
+          <TodoForm handleAddTask={this.handleAddTask}/>
         </div>
 
         <TodoList tasks={this.state.tasks}/>
