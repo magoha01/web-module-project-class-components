@@ -39,11 +39,11 @@ In this project you will build an application that allows for todos to be added,
 
 ## Instructions
 ### Task 1: Project Set Up
-* [ ] Create a forked copy of this project.
-* [ ] Clone your OWN version of the repository in your terminal
-* [ ] cd into the project base directory `cd web-module-project-lifecycle`
-* [ ] Download project dependencies by running `npm install`
-* [ ] Start up the app using `npm start`
+* [X] Create a forked copy of this project.
+* [X] Clone your OWN version of the repository in your terminal
+* [X] cd into the project base directory `cd web-module-project-lifecycle`
+* [X] Download project dependencies by running `npm install`
+* [X] Start up the app using `npm start`
 
 ### Task 2: Project Requirements
 - **Don't focus on styling yet**. We want you to worry about function over form today.
@@ -53,7 +53,7 @@ In this project you will build an application that allows for todos to be added,
 - `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
   - All of your application data will be stored here on `<App />`.
   - All of your `handler` functions should live here on `<App />`.
-- `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
+- `<TodoList />` receives your To dos array and iterates over the list generating a new `<Todo />` for each element in the array.
 - `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
 - `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
